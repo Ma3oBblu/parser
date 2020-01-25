@@ -1,21 +1,39 @@
-import * as Sequelize from "sequelize";
+import { Model, DataTypes } from 'sequelize';
 import * as dbConnection from '../../../Configs/Connection';
 
-module.exports = dbConnection.sequelize.define("Category", {
+export class Category extends Model {
+    public id!: number;
+    public title!: string;
+    public productAmount!: number;
+    public parentId!: number;
+}
+
+Category.init({
     id: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: DataTypes.INTEGER.UNSIGNED,
         primaryKey: true,
     },
     title: {
-        type: Sequelize.STRING(255),
+        type: DataTypes.STRING(255),
         allowNull: true,
     },
     productAmount: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: true,
     },
     parentId: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: true,
     }
+}, {
+    tableName: 'category',
+    sequelize: dbConnection.sequelize, // this bit is important
 });
+
+export interface CategorySource {
+    id: number,
+    title: string,
+    icon: string,
+    children: CategorySource[],
+    parentId?: number
+}
