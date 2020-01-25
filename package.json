@@ -1,0 +1,26 @@
+{
+  "name": "parser",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "js": "node index.js",
+    "start": "./node_modules/.bin/ts-node ./src/index.ts",
+    "test": "./node_modules/.bin/ts-mocha",
+    "watch": "./node_modules/.bin/nodemon -e ts -w ./src -x npm run watch:serve",
+    "watch:serve": "./node_modules/.bin/ts-node ./src/index.ts"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "^4.16.4",
+    "http-errors": "~1.6.3",
+    "lodash": "^4.17.11",
+    "sequelize": "^5.8.11",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5",
+    "validator": "^11.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
