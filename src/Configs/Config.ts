@@ -1,7 +1,9 @@
+import {Dialect} from "sequelize";
+
 export let mysql: MysqlConfigI  = undefined;
 
 export interface MysqlConfigI {
-    dialect: string,
+    dialect: Dialect,
     host: string,
     username: string,
     password: string,

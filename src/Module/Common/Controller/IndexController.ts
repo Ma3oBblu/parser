@@ -1,18 +1,8 @@
 import * as express from 'express';
-
+import * as dbConnection from '../../../Configs/Connection';
 const router = express.Router();
-import * as config from '../../../Configs/Config';
-const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize(
-    config.mysql.database,
-    config.mysql.username,
-    config.mysql.password,
-    {
-        host: config.mysql.host,
-        dialect: config.mysql.dialect
-    }
-);
+const sequelize = dbConnection.sequelize;
 
 /**
  * Проверка на работоспособность

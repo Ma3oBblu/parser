@@ -1,3 +1,4 @@
 node_modules
 .idea
-src/Configs/Config.js
+/src/Configs/Config.js
+/src/Configs/sequelize_config.json

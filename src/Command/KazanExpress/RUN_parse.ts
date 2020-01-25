@@ -19,7 +19,8 @@ function wait(n: number): Promise<boolean> {
  * Парсинг товаров и сохранение в БД
  */
 const run = async () => {
-    await self.runDynamicConfig();
+    const sequelize = await self.runDynamicConfig();
+    await sequelize.sync({force: true});
     let i = 0;
     try {
         const product: any = await getProduct();

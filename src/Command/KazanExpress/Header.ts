@@ -1,23 +1,15 @@
 // Подключение системных классов
-import * as config from '../../Configs/Config.js';
 
 process.env.TS_NODE_PROJECT = './tsconfig.json';
 
-const Sequelize = require('sequelize');
+import * as dbConnection from '../../Configs/Connection';
 
-export const sequelize = new Sequelize(
-    config.mysql.database,
-    config.mysql.username,
-    config.mysql.password,
-    {
-        host: config.mysql.host,
-        dialect: config.mysql.dialect
-    }
-);
+export const sequelize = dbConnection.sequelize;
 
 /**
  * Динамическая конфигурация
  */
 export async function runDynamicConfig() {
+    console.log(sequelize);
     return sequelize;
 }
