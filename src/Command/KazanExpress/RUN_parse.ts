@@ -31,6 +31,7 @@ const run = async () => {
         console.log('ERROR=>>>', e);
     }
     wait(1000);
+    console.log('Completed');
     process.exit(-1); // завершить программу
 };
 run();
