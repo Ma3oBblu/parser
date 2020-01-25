@@ -1,29 +1,29 @@
 import * as express from 'express';
 
 const router = express.Router();
-import * as Config from '../../../Configs/config';
+import * as config from '../../../Configs/Config';
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize(
-    Config.mysql2.database,
-    Config.mysql2.username,
-    Config.mysql2.password,
+    config.mysql.database,
+    config.mysql.username,
+    config.mysql.password,
     {
-        host: Config.mysql2.host,
-        dialect: Config.mysql2.dialect
+        host: config.mysql.host,
+        dialect: config.mysql.dialect
     }
 );
 
 /**
  * Проверка на работоспособность
  */
-router.get('/', (req, res, next) => {
+router.get('/', (req:any, res:any, next:any) => {
     sequelize
         .authenticate()
         .then(() => {
             console.log('Connection has been established successfully.');
         })
-        .catch(err => {
+        .catch((err: any) => {
             console.error('Unable to connect to the database:', err);
         });
     res.send('Сервер работает');

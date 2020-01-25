@@ -3,7 +3,7 @@ module.exports = {
      * Конфигурация для sequelizejs. Соединение с MySQL базой.
      * @see http://docs.sequelizejs.com/class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor
      */
-    mysql2: {
+    mysql: {
         dialect: 'mysql',
         host: '',
         username: '',
