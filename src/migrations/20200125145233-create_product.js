@@ -27,6 +27,14 @@ module.exports = {
         type: Sequelize.INTEGER.UNSIGNED,
         allowNull: true
       },
+      sellPrice: {
+        type: Sequelize.DOUBLE,
+        allowNull: true
+      },
+      fullPrice: {
+        type: Sequelize.DOUBLE,
+        allowNull: true
+      },
       description: {
         type: Sequelize.TEXT,
         allowNull: true

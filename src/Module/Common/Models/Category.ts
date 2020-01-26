@@ -35,5 +35,6 @@ export interface CategorySource {
     title: string,
     icon: string,
     children: CategorySource[],
-    parentId?: number
+    parentId?: number,
+    productAmount?: number
 }

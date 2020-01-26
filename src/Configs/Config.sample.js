@@ -9,7 +9,7 @@ module.exports = {
         username: '',
         password: '',
         database: '',
-        logging: true,
+        logging: false,
         port: 3306,
         pool: {
             max: 5,
