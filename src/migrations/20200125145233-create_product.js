@@ -20,7 +20,7 @@ module.exports = {
         allowNull: true
       },
       ordersAmount: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: Sequelize.INTEGER,
         allowNull: true
       },
       totalAvailableAmount: {

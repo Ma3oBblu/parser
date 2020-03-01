@@ -40,7 +40,7 @@ Product.init({
         allowNull: true
     },
     ordersAmount: {
-        type: DataTypes.INTEGER.UNSIGNED,
+        type: DataTypes.INTEGER,
         allowNull: true
     },
     totalAvailableAmount: {
