@@ -96,19 +96,23 @@ async function addCategoryProducts(axios:any, categoryId:number, productAmount:n
     let order:string = 'ascending'; // сортировка
     while (productCount > 0){ // пока есть товары в категоии
         // заберем пачку товаров - 24 штуки
-        const products = (await axios.get(`/main/more?categoryId=${categoryId}&size=${pageSize}&page=${page}&sortBy=&order=${order}`)).data;
-        let m:number; // счетчик
-        for (m = 0; m < products.payload.length; m++){ // переберем товары
-            try{
-                await addSimpleProduct(products.payload[m], categoryId); // добавим товар в базу
-            } catch (e) {
-                console.log('ERROR adding category products=>>>', e);
+        try{
+            const products = (await axios.get(`/main/more?categoryId=${categoryId}&size=${pageSize}&page=${page}&sortBy=&order=${order}`)).data;
+            let m:number; // счетчик
+            for (m = 0; m < products.payload.length; m++){ // переберем товары
+                try{
+                    await addSimpleProduct(products.payload[m], categoryId); // добавим товар в базу
+                } catch (e) {
+                    console.log('ERROR adding category products=>>>', e);
+                }
             }
+            page++; // следующая страница
+            productCount = productCount - pageSize; // уменьшаем общее кол-во товаров
+            console.log(`===> page ${page}`);
+            console.log(`===> productCount ${productCount}`);
+        } catch (err) {
+            console.log(`error in addCategoryProducts`, err);
         }
-        page++; // следующая страница
-        productCount = productCount - pageSize; // уменьшаем общее кол-во товаров
-        console.log(`===> page ${page}`);
-        console.log(`===> productCount ${productCount}`);
     }
 }
 
